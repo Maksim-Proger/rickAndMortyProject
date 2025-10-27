@@ -44,6 +44,7 @@ dependencies {
     implementation(libs.androidx.paging.compose)
 
     implementation(libs.androidx.room)
+    implementation(libs.android.room.paging)
     kapt(libs.androidx.room.compiler)
 
     implementation(libs.hilt.android)

@@ -4,7 +4,12 @@ import androidx.paging.ExperimentalPagingApi
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
+import androidx.paging.map
 import com.example.project.data.api.Api
+import com.example.project.data.local.AppDatabase
+import com.example.project.data.mappers.toDomain
+import com.example.project.data.paging.MainRemoteMediator
+import com.example.project.data.paging.SearchPagingSource
 import com.example.project.domain.models.DomainModelCharacter
 import com.example.project.domain.repositories.RepositoryApi
 import kotlinx.coroutines.flow.Flow
@@ -30,16 +35,12 @@ class RepositoryApiImpl @Inject constructor(
     }
 
     override fun searchMethod(name: String): Flow<PagingData<DomainModelCharacter>> {
-        val pagingSourceFactory = { db.characterDao().searchCharacters(name) }
-
         return Pager(
             config = PagingConfig(pageSize = 20),
-            remoteMediator = MainRemoteMediator(api, db),
-            pagingSourceFactory = pagingSourceFactory
-        ).flow.map { pagingData ->
-            pagingData.map { it.toDomain() }
-        }
+            pagingSourceFactory = { SearchPagingSource(api, name) }
+        ).flow
     }
+
 
     override suspend fun getCharacterById(id: Int): DomainModelCharacter {
         return api.getCharacterById(id).toDomain()
