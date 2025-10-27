@@ -101,6 +101,26 @@ fun DetailCardScaffold(
                         text = it.species,
                         style = MaterialTheme.typography.bodyLarge
                     )
+                    Spacer(Modifier.padding(vertical = 7.dp))
+                    Text(
+                        text = it.origin.toString(),
+                        style = MaterialTheme.typography.bodyLarge
+                    )
+                    Spacer(Modifier.padding(vertical = 7.dp))
+                    Text(
+                        text = it.location.toString(),
+                        style = MaterialTheme.typography.bodyLarge
+                    )
+                    Spacer(Modifier.padding(vertical = 7.dp))
+                    Text(
+                        text = it.url ?: "",
+                        style = MaterialTheme.typography.bodyLarge
+                    )
+                    Spacer(Modifier.padding(vertical = 7.dp))
+                    Text(
+                        text = it.created ?: "",
+                        style = MaterialTheme.typography.bodyLarge
+                    )
                 }
             }
         }

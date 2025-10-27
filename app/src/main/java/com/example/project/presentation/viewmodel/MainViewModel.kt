@@ -27,7 +27,7 @@ class MainViewModel @Inject constructor(
     private val getCharactersUseCase: GetCharactersUseCase,
     private val getCharacterByIdUseCase: GetCharacterByIdUseCase,
     private val searchMethodUseCase: SearchMethodUseCase
-): ViewModel()  {
+) : ViewModel() {
 
     private val _searchText = MutableStateFlow("")
     val searchText = _searchText.asStateFlow()
