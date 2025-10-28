@@ -18,6 +18,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.TopAppBarScrollBehavior
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
@@ -32,7 +33,7 @@ import androidx.compose.ui.unit.dp
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CustomTopAppBar(
-    scrollBehavior: TopAppBarScrollBehavior,
+    scrollBehavior: TopAppBarScrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior(),
     title: String,
     isActiveButtonBack: Boolean = false,
     searchText: String = "",
@@ -87,8 +88,7 @@ private fun SearchTextField(
         leadingIcon = {
             Icon(
                 imageVector = Icons.Default.Search,
-                contentDescription = null,
-//                tint = MaterialTheme.colorScheme.onSecondary
+                contentDescription = null
             )
         },
         trailingIcon = if (searchText.isNotEmpty()) {
@@ -101,8 +101,7 @@ private fun SearchTextField(
                 ) {
                     Icon(
                         imageVector = Icons.Default.Close,
-                        contentDescription = null,
-//                        tint = MaterialTheme.colorScheme.onSecondary
+                        contentDescription = null
                     )
                 }
             }
@@ -111,8 +110,7 @@ private fun SearchTextField(
             {
                 Text(
                     text = "Поиск ...",
-                    style = MaterialTheme.typography.bodyMedium,
-//                    color = MaterialTheme.colorScheme.onSecondary
+                    style = MaterialTheme.typography.bodyMedium
                 )
             }
         } else null,
