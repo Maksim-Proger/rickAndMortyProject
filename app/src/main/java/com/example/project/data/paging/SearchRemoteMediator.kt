@@ -32,13 +32,11 @@ class SearchRemoteMediator(
         }
 
         return try {
-            // Проверяем, есть ли локальные результаты
             val localCount = db.characterDao().countByName(query)
             if (localCount > 0 && loadType == LoadType.REFRESH) {
                 return MediatorResult.Success(endOfPaginationReached = true)
             }
 
-            // Запрашиваем из API
             val response = api.searchMethod(query, page)
             val characters = response.results.map { it.toEntity() }
 

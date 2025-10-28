@@ -31,11 +31,13 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.paging.LoadState
 import androidx.paging.compose.collectAsLazyPagingItems
+import com.example.project.R
 import com.example.project.presentation.components.CharacterItem
 import com.example.project.presentation.components.CustomTopAppBar
 import com.example.project.presentation.navigation.Route
@@ -72,7 +74,7 @@ fun MainScreenScaffold(
                     navController.navigate(Route.AdvancedSearchScreen.route)
                 }
             ) {
-                Icon(Icons.Default.Check, contentDescription = "Применить фильтр")
+                Icon(painterResource(R.drawable.icon_filter), contentDescription = "Фильтр")
             }
         },
         floatingActionButtonPosition = FabPosition.End

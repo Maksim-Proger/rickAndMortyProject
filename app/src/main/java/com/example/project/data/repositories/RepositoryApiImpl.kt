@@ -60,10 +60,8 @@ class RepositoryApiImpl @Inject constructor(
 
     override suspend fun getCharacterById(id: Int): DomainModelCharacter {
         return try {
-            // 1️⃣ Попробовать получить из API
             api.getCharacterById(id).toDomain()
         } catch (e: Exception) {
-            // 2️⃣ Если ошибка сети — достать из локальной базы
             val local = db.characterDao().getCharacterById(id)
             local?.toDomain() ?: throw e
         }
