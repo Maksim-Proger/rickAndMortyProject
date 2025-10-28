@@ -12,8 +12,6 @@ import com.example.project.domain.models.DomainModelCharacter
 import com.example.project.domain.models.Location
 import com.example.project.domain.models.Origin
 import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
-import kotlin.collections.emptyList
 
 fun ApiCharacter.toDomain(): DomainModelCharacter {
     return DomainModelCharacter(

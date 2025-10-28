@@ -45,9 +45,7 @@ fun DetailCardScaffold(
                 scrollBehavior = scrollBehavior,
                 title = "Информация о персонаже",
                 isActiveButtonBack = true,
-                buttonBack = {
-                    navController.popBackStack()
-                }
+                buttonBack = { navController.popBackStack() }
             )
         }
     ) { innerPadding ->

@@ -15,11 +15,19 @@ interface Api {
     @GET("character/{id}")
     suspend fun getCharacterById(
         @Path("id") id: Int
-    ) : ApiCharacter
+    ): ApiCharacter
 
     @GET("character")
     suspend fun searchMethod(
         @Query("name") name: String,
         @Query("page") page: Int
+    ): ApiCharacterList
+
+    @GET("character")
+    suspend fun searchFilterMethod(
+        @Query("name") name: String? = null,
+        @Query("status") status: String? = null,
+        @Query("gender") gender: String? = null,
+        @Query("page") page: Int? = null
     ): ApiCharacterList
 }
